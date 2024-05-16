@@ -19,7 +19,7 @@ module.exports.contratos_detail = (id) => {
 
 module.exports.contratos_entidade = (entidade) => {
     return Contratos
-        .find({ entidade_comunicante: entidade })
+        .find({ NIPC_entidade_comunicante: entidade })
         .exec();
 }
 

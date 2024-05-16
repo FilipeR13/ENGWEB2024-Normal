@@ -1,6 +1,22 @@
 
 version: '3.8'
 services:
+  backend:
+    build:
+      context: ./ex1
+      dockerfile: Dockerfile
+    ports:
+      - "16000:16000"
+    depends_on:
+      - mongodb
+  frontend:
+    build:
+      context: ./ex2
+      dockerfile: Dockerfile
+    ports:
+      - "16001:16001"
+    depends_on:
+      - backend
   mongodb:
     image: mongo:latest
     ports:
@@ -11,6 +27,6 @@ services:
     container_name: ENGWEB2024-normal-mongo-seed
     image: mongo:latest
     volumes:
-      - /home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024.json:/datasets//home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024.json
+      - /home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024_fixed.json:/datasets//home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024_fixed.json
 
-    command: /bin/bash -c "mongoimport --host mongodb -d contratos -c contratos --type json --file /datasets//home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024.json --jsonArray"
+    command: /bin/bash -c "mongoimport --host mongodb -d contratos -c contratos --type json --file /datasets//home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024_fixed.json --jsonArray"
