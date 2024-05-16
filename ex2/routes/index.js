@@ -4,7 +4,7 @@ var axios = require('axios');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  axios.get('http://localhost:16000/contratos')
+  axios.get('http://engweb2024-normal-backend-1:16000/contratos')
     .then(dados => {
       res.render('index', { lista: dados.data , title : 'Lista de Contratos'});
     })
@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/entidades/:nipc', function(req, res, next) {
-  axios.get('http://localhost:16000/contratos?entidade=' + req.params.nipc)
+  axios.get('http://engweb2024-normal-backend-1:16000/contratos?entidade=' + req.params.nipc)
     .then(dados => {
       let preco = 0;
       dados.data.forEach(element => {
@@ -28,7 +28,7 @@ router.get('/entidades/:nipc', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  axios.get('http://localhost:16000/contratos/' + req.params.id)
+  axios.get('http://engweb2024-normal-backend-1:16000/contratos/' + req.params.id)
     .then(dados => {
       res.render('contrato', { contrato: dados.data });
     })
