@@ -8,13 +8,9 @@ O resultado dessa transformação está no ficheiro `contratos2024.json`.
 
 Após uma breve análise do ficheiro, foi possível perceber que os objetos do ficheiro não eram consistentes no que toca ao atributo `PrecoContratual`. Este atributo podia ser um número ou uma string. Para resolver este problema, foi necessário fazer um pequeno script em Python que transformasse todas as strings em números. O resultado dessa transformação está no ficheiro `contratos2024_fixed.json`. Para além disso, também foi tranformado o atributo `idContrato` em `_id` com um simples find and replace 
 
-Com o ficheiro `contratos2024_fixed.json` pronto, foi possível importar os dados para uma base de dados MongoDB. Para isso, foi necessário correr o seguinte comando:
+Com o ficheiro `contratos2024_fixed.json` pronto, foi possível importar os dados para uma base de dados MongoDB.
 
-```bash
-python3 generate_docker contratos ENGWEB2024-Normal contratos <path_to_file>
-```
-
-O path to file corresponde ao ficheiro `contratos2024_fixed.json` mencionado anteriormente.
+Para facilitar a importação dos dados, foi gerado o ficheiro `docker-compose.yml`.
 
 Após correr o comando, foi possível aceder à base de dados e verificar que os dados foram importados com sucesso.
 
