@@ -27,6 +27,6 @@ services:
     container_name: ENGWEB2024-normal-mongo-seed
     image: mongo:latest
     volumes:
-      - /home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024_fixed.json:/datasets//home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024_fixed.json
+      - ./contratos2024_fixed.json:/datasets/contratos2024_fixed.json
 
-    command: /bin/bash -c "mongoimport --host mongodb -d contratos -c contratos --type json --file /datasets//home/asus/projects/EngWeb/ENGWEB2024-Normal/contratos2024_fixed.json --jsonArray"
+    command: /bin/bash -c "mongoimport --host mongodb -d contratos -c contratos --type json --file /datasets/contratos2024_fixed.json --jsonArray"
